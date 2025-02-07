@@ -6,12 +6,6 @@ public class Validate
         return word.matches("@[a-z]{5,}");
     }
 
-    //Acceptable Two-Letter Word
-    public static boolean validTwo(String word)
-    {
-        return word.matches("[a-zA-Z]{2}");
-    }
-
     //Acceptable Three-Letter Word
     public static boolean validThree(String word)
     {
@@ -22,6 +16,12 @@ public class Validate
     public static boolean validFour(String word)
     {
         return word.matches("[a-zA-Z]{4}");
+    }
+
+    //Acceptable Five-Letter Word
+    public static boolean validFive(String word)
+    {
+        return word.matches("[a-zA-Z]{5}");
     }
 }
 

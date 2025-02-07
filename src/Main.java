@@ -22,6 +22,7 @@ public class Main
 
         while (player.score < 9)
         {
+            System.out.println();
             System.out.println("Type a word that has " + player.position + " letters.");
             response = key.nextLine();
             player.shoot(response);
