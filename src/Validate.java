@@ -3,19 +3,19 @@ public class Validate
     //Username: @_____
     public static boolean validUser(String word)
     {
-        return word.matches("@[a-z]{5,}");
+        return word.matches("@[a-z0-9]{4,}");
     }
 
     //Acceptable Three-Letter Word
     public static boolean validThree(String word)
     {
-        return word.matches("[a-zA-Z]{3}");
+        return word.matches("[^aeiouy][aeiouy][^aeiouy]");
     }
 
     //Acceptable Four-Letter Word
     public static boolean validFour(String word)
     {
-        return word.matches("[a-zA-Z]{4}");
+        return word.matches("[^aeiouy]ea[^aeiouy]");
     }
 
     //Acceptable Five-Letter Word

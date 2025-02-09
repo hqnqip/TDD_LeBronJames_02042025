@@ -1,36 +1,63 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws InterruptedException {
         Scanner key = new Scanner(System.in);
-        String response;
-        LeBron player;
+        String response; //Keeps track of user's response.
+        LeBron player; //The user's game character.
 
-        System.out.println("Hello! Type in your username! Use the format: @[lowercase]");
+        //Defines the stats based on username.
+        System.out.println("Hello! Welcome to Around LeBron's World! " +
+                            "\nType your username! Use the format: @[lowercase]" +
+                            "\nOtherwise, you play as a guest.");
         response = key.nextLine();
         if (Validate.validUser(response)) {
             player = new LeBron(response);
         }
         else {
-            System.out.println("This username is invalid. You will be defaulted to @LeBronJames");
+            System.out.println("This username is invalid. You are registered as a guest instead." +
+                                "\nYou will be defaulted to @lebronjames.");
             player = new LeBron();
         }
 
-        System.out.println(player.toString());
+        //Wait 1 second.
+        TimeUnit.SECONDS.sleep(1);
 
-        while (player.score < 9)
+        //Prints out the character's stats.
+        System.out.println("\n" + player.toString());
+
+        //Wait 1 second.
+        TimeUnit.SECONDS.sleep(1);
+
+        //Game Text
+        System.out.println("\nSynopsis: You will be playing against... Bugs Bunny!");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("Imagine a basket and a white half-circle painted around it.");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("You stand from the beginning of the circle, called Position 3.");
+        System.out.println("Depending on the position, you're given a prompt/question to answer.");
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println("If you answer correctly, your chance of making the hoop increases by 10%!");
+        System.out.println("Otherwise, you automatically reset to Position 3.");
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println("Make the hoop to increase your score by the position number and advance to the next position.");
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println("\nGOAL: FINISH THE HALF-CIRCLE AT POSITION 7 OR REACH 30 POINTS.");
+
+        //Actual Game
+        while (player.score < 30)
         {
             System.out.println();
-            System.out.println("Type a word that has " + player.position + " letters.");
+            System.out.println("You are on Position " + player.position + "." +
+                                "\nType a word that has " + player.position + " letters.");
             response = key.nextLine();
             player.shoot(response);
         }
 
-        System.out.println("You made it to 9 points!");
-    }//End main.
-}//End Main.
+    }//End main().
+}//End Main Class.
 
 //Have it so that each word they type in that's correct. It boosts crit rate
 //which will be used in randomNumber to define the shoot's success.
