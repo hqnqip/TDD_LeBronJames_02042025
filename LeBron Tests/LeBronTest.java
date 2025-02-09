@@ -32,18 +32,4 @@ class LeBronTest
 
         System.out.println(question + pattern);
     }
-
-    /*
-    @org.junit.jupiter.api.Test
-    void shoot()
-    {
-
-    }
-
-    @org.junit.jupiter.api.Test
-    void testToString()
-    {
-
-    }
-    */
 }
