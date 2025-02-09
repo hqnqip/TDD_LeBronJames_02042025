@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertTrue;
-class ValidateTest {
+class ValidateTest
+{
     @org.junit.jupiter.api.Test
     void validUser() {
         String test1 = ("@hqnqip");
