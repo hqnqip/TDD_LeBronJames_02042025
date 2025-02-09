@@ -47,7 +47,7 @@ public class Main
         System.out.println("\nGOAL: FINISH THE HALF-CIRCLE AT POSITION 7 OR REACH 30 POINTS.");
 
         //Actual Game
-        while (player.score < 30 || player.position < 8)
+        while (player.score < 30 && player.position < 8)
         {
             System.out.println();
             System.out.println("You are on Position " + player.position + ".");
