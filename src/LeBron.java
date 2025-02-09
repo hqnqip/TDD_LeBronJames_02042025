@@ -12,7 +12,7 @@ public class LeBron
     public LeBron ()
     {
         username = "@lebronjames";
-        critRate = 0.50;
+        critRate = 0.60;
         position = 4;
         score = 0;
     }
@@ -21,7 +21,7 @@ public class LeBron
     public LeBron (String username)
     {
         this.username = username;
-        critRate = 0.20;
+        critRate = 0.30;
         position = 3;
         score = 0;
     }
@@ -48,7 +48,7 @@ public class LeBron
             lucky();
         }
         else {
-            System.out.println("Wrong! You've returned to Position 2.");
+            System.out.println("Wrong! You've returned to Position 3.");
             position = 3;
         }
     }//End shoot().
