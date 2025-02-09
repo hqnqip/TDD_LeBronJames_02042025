@@ -15,13 +15,23 @@ public class Validate
     //Acceptable Four-Letter Word
     public static boolean validFour(String word)
     {
-        return word.matches("[^aeiouy]ea[^aeiouy]");
+        return word.matches("[dhs][hou][no][kpt]");
     }
 
     //Acceptable Five-Letter Word
     public static boolean validFive(String word)
     {
-        return word.matches("[a-zA-Z]{5}");
+        return word.matches("[cf][oi][ue][rl][td]");
+    }
+
+    public static boolean validSix(String word)
+    {
+        return word.matches("[jbl][ore][ryb][dar][ano][nt]");
+    }
+
+    public static boolean validSeven(String word)
+    {
+        return word.matches("[12][90][92][61]");
     }
 }
 

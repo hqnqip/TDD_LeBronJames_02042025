@@ -31,19 +31,22 @@ public class LeBron
             isCorrect = Validate.validThree(word);
         else if (position == 4)
             isCorrect = Validate.validFour(word);
-        else
+        else if (position == 5)
             isCorrect = Validate.validFive(word);
+        else if (position == 6)
+            isCorrect = Validate.validSix(word);
+        else
+            isCorrect = Validate.validSeven(word);
 
         if (isCorrect)
         {
-            System.out.println("Correct! There are " + position + " letters in this word!");
+            System.out.println("Correct!");
             System.out.println();
             lucky();
         }
         else {
-            System.out.println("Wrong! You need " + position + " letters! You've returned to position two.");
-            System.out.println();
-            position = 2;
+            System.out.println("Wrong! You've returned to position two.");
+            position = 3;
         }
     }//End shoot().
 
@@ -62,19 +65,45 @@ public class LeBron
 
         //Comparison between rate and random number
         //that defines whether the user makes the shot.
-        if (num <= rate)
+        if (num <= rate && position < 8)
         {
             System.out.println("You made it in!");
-            System.out.println();
             score += position;
             position++;
         }
         else
         {
             System.out.println("Ouch, you did not make it...");
-            System.out.println();
             critRate = 0.20; //Resets the Critical Rate.
+            position = 3;
         }
+    }
+
+    public String prompt()
+    {
+        String question = "";
+        String pattern = "\nPattern: ";
+        if (position == 3) {
+            question += "Question: Any word.";
+            pattern += "[consonant][vowel][consonant]";
+        }
+        else if (position == 4) {
+            question += "Question: Related to scoring.";
+            pattern += "[consonant][any][any][consonant]";
+        }
+        else if (position == 5) {
+            question += "Question: The ball cannot land outside the _____.";
+            pattern += "[consonant][vowel][vowel][consonant][consonant]";
+        }
+        else if (position == 6) {
+            question += "Question: A famous basketball player.";
+            pattern += "[consonant][any][any][any][any][consonant]";
+        }
+        else {
+            question += "Question: The date of either Space Jam movies' release.";
+            pattern += "[number][number][number][number]";
+        }
+        return question + pattern;
     }
 
     //Lists all attributes.

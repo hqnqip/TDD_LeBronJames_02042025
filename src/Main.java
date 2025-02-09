@@ -47,14 +47,20 @@ public class Main
         System.out.println("\nGOAL: FINISH THE HALF-CIRCLE AT POSITION 7 OR REACH 30 POINTS.");
 
         //Actual Game
-        while (player.score < 30)
+        while (player.score < 30 || player.position < 8)
         {
             System.out.println();
-            System.out.println("You are on Position " + player.position + "." +
-                                "\nType a word that has " + player.position + " letters.");
+            System.out.println("You are on Position " + player.position + ".");
+            if (player.position < 7)
+                System.out.println("Instructions: Type a word that has " + player.position + " letters.");
+            else
+                System.out.println("Instructions: Type a number.");
+            System.out.println(player.prompt());
             response = key.nextLine();
             player.shoot(response);
         }
+
+        System.out.println("You won!");
 
     }//End main().
 }//End Main Class.
