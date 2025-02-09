@@ -78,7 +78,7 @@ public class LeBron
         else
         {
             System.out.println("Ouch, you did not make it...");
-            critRate = 0.20; //Resets the Critical Rate.
+            critRate = 0.30; //Resets the Critical Rate.
             position = 3;
         }
     }

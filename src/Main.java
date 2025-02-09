@@ -31,6 +31,9 @@ public class Main
         //Wait 1 second.
         TimeUnit.SECONDS.sleep(1);
 
+        //Create Bugs Bunny.
+        Rival bugs = new Rival("@bugsbunny");
+
         //Game Text
         System.out.println("\nSynopsis: You will be playing against... Bugs Bunny!");
         TimeUnit.SECONDS.sleep(1);
@@ -47,7 +50,7 @@ public class Main
         System.out.println("\nGOAL: FINISH THE HALF-CIRCLE AT POSITION 7 OR REACH 30 POINTS.");
 
         //Actual Game
-        while (player.score < 30 && player.position < 8)
+        while ((player.score < 30 && player.position < 8) && (bugs.score < 30 && bugs.position < 8))
         {
             System.out.println();
             System.out.println("You are on Position " + player.position + ".");
@@ -58,6 +61,11 @@ public class Main
             System.out.println(player.prompt());
             response = key.nextLine();
             player.shoot(response);
+
+            System.out.println();
+            bugs.shoot();
+
+            System.out.println("\nScoring: " + player.score + " vs. " + bugs.score);
         }
 
         System.out.println("You won!");
