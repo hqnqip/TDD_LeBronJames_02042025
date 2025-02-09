@@ -1,3 +1,5 @@
+import java.util.concurrent.TimeUnit;
+
 public class LeBron
 {
     //Variables
@@ -10,8 +12,9 @@ public class LeBron
     public LeBron ()
     {
         username = "@lebronjames";
-        critRate = 0.80;
+        critRate = 0.50;
         position = 4;
+        score = 0;
     }
 
     //Custom Constructor
@@ -20,12 +23,12 @@ public class LeBron
         this.username = username;
         critRate = 0.20;
         position = 3;
+        score = 0;
     }
 
     //Method
     //Assigns a different word prompt based on user's position.
-    public void shoot(String word)
-    {
+    public void shoot(String word) throws InterruptedException {
         boolean isCorrect = false;
         if (position == 3)
             isCorrect = Validate.validThree(word);
@@ -52,8 +55,7 @@ public class LeBron
 
     //When typing the correct answer, the Critical Rate is boosted.
     //This determines whether the user officially makes the basket.
-    public void lucky()
-    {
+    public void lucky() throws InterruptedException {
         //Correct answers boost Critical Rate by 10%.
         if (critRate < 1.0)
             critRate += 0.10;
@@ -69,7 +71,9 @@ public class LeBron
         {
             System.out.println("You made it in!");
             score += position;
+            System.out.println("Your score is " + score + ".");
             position++;
+            TimeUnit.SECONDS.sleep(1);
         }
         else
         {

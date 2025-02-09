@@ -1,5 +1,7 @@
 public class Validate
 {
+    //Testing RegEx.
+
     //Username: @_____
     public static boolean validUser(String word)
     {
@@ -24,11 +26,13 @@ public class Validate
         return word.matches("[cf][oi][ue][rl][td]");
     }
 
+    //Acceptable Six-Letter Word
     public static boolean validSix(String word)
     {
         return word.matches("[jbl][ore][ryb][dar][ano][nt]");
     }
 
+    //Acceptable Seven-Letter Word
     public static boolean validSeven(String word)
     {
         return word.matches("[12][90][92][61]");
