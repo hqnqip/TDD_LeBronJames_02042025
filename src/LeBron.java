@@ -45,7 +45,7 @@ public class LeBron
             lucky();
         }
         else {
-            System.out.println("Wrong! You've returned to position two.");
+            System.out.println("Wrong! You've returned to Position 2.");
             position = 3;
         }
     }//End shoot().
