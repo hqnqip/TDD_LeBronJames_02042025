@@ -7,6 +7,7 @@ public class LeBron
     protected double critRate;
     protected int position;
     protected int score;
+    protected int boJacks = 0;
 
     //Default Constructor
     public LeBron ()
@@ -26,7 +27,17 @@ public class LeBron
         score = 0;
     }
 
-    //Method
+    //Setters
+    public void setScore (int score)
+    {
+        this.score = score;
+    }
+    public void setPosition(int position)
+    {
+        this.position = position;
+    }
+
+    //Brain Methods
     //Assigns a different word prompt based on user's position.
     public void shoot(String word) throws InterruptedException {
         boolean isCorrect = false;
@@ -77,6 +88,8 @@ public class LeBron
         }
         else
         {
+            if (position == 3)
+                boJacks++;
             System.out.println("Ouch, you did not make it...");
             critRate = 0.30; //Resets the Critical Rate.
             position = 3;
@@ -108,6 +121,21 @@ public class LeBron
             pattern += "[number][number][number][number]";
         }
         return question + pattern;
+    }
+
+    public void boJackInspires()
+    {
+        if ((boJacks > 0) && ((boJacks % 3) == 0))
+        {
+            System.out.println("\nA light shines in the distance. It is Bo Jackson!" +
+                                "\nHe has come to inspire you!" +
+                                "\n\nHe says, \"Hey man, I see you're struggling here. I ain't no basketball player, only into baseball and football." +
+                                "\nBut every rising star goes through the same struggle no matter the sport. If I can do it, so can you.\"" +
+                                "\nAs Bo Jackson leaves, his light dims. However, you're feeling more inspired than ever!" +
+                                "\n\nYou hop to Position 4!");
+            position++;
+            boJacks = 0;
+        }
     }
 
     //Lists all attributes.

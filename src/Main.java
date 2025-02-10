@@ -79,6 +79,8 @@ public class Main
             response = key.nextLine();
             player.shoot(response);
 
+            player.boJackInspires();
+
             System.out.println();
             rival.shoot();
 

@@ -8,6 +8,7 @@ public class Rival
     protected int position;
     protected int score;
 
+    //Custom Constructor
     public Rival (String username)
     {
         this.username = username;
@@ -22,6 +23,17 @@ public class Rival
             critRate = 0.3;
     } //Probably make a test that ensures different usernames get different rates.
 
+    //Setters
+    public void setScore (int score)
+    {
+        this.score = score;
+    }
+    public void setPosition(int position)
+    {
+        this.position = position;
+    }
+
+    //Brain Methods
     public void shoot() throws InterruptedException
     {
         System.out.println(username + " is on Position " + position + ".");
