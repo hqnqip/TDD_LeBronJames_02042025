@@ -5,8 +5,10 @@ public class Main
 {
     public static void main(String[] args) throws InterruptedException {
         Scanner key = new Scanner(System.in);
+        int ran;
         String response; //Keeps track of user's response.
         LeBron player; //The user's game character.
+        Rival rival;
 
         //Defines the stats based on username.
         System.out.println("Hello! Welcome to Around LeBron's World! " +
@@ -31,13 +33,28 @@ public class Main
         //Wait 1 second.
         TimeUnit.SECONDS.sleep(1);
 
-        //Create Bugs Bunny.
-        Rival bugs = new Rival("@bugsbunny");
+        //Defines rival.
+        ran = (int)(Math.random() * 3);
+        if (ran == 0)
+            rival = new Rival("@bugsbunny");
+        else if (ran == 1)
+            rival = new Rival("@lolabunny");
+        else
+            rival = new Rival("@spacealien");
 
         //Game Text
-        System.out.println("\nSynopsis: You will be playing against... Bugs Bunny!");
+        System.out.println("\nEarth and Toon World are competing to see who is the better shot.");
         TimeUnit.SECONDS.sleep(1);
-        System.out.println("Imagine a basket and a white half-circle painted around it.");
+        System.out.print("You will be playing against");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.print(".");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.print(".");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.print(".");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println(" " + rival.username + "!");
+        System.out.println("\nImagine a basket and a white half-circle painted around it.");
         TimeUnit.SECONDS.sleep(1);
         System.out.println("You stand from the beginning of the circle, called Position 3.");
         System.out.println("Depending on the position, you're given a prompt/question to answer.");
@@ -50,7 +67,7 @@ public class Main
         System.out.println("\nGOAL: FINISH THE HALF-CIRCLE AT POSITION 7 OR REACH 30 POINTS.");
 
         //Actual Game
-        while ((player.score < 30 && player.position < 8) && (bugs.score < 30 && bugs.position < 8))
+        while ((player.score < 30 && player.position < 8) && (rival.score < 30 && rival.position < 8))
         {
             System.out.println();
             System.out.println("You are on Position " + player.position + ".");
@@ -63,12 +80,15 @@ public class Main
             player.shoot(response);
 
             System.out.println();
-            bugs.shoot();
+            rival.shoot();
 
-            System.out.println("\nScoring: " + player.score + " vs. " + bugs.score);
+            System.out.println("\nScoring: " + player.score + " vs. " + rival.score);
         }
 
-        System.out.println("You won!");
+        if ((player.score > rival.score) || (player.position == 8))
+            System.out.println("You won!");
+        else
+            System.out.println("Aww. Better luck next time.");
 
     }//End main().
 }//End Main Class.
