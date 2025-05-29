@@ -24,3 +24,5 @@ Each position number you are on will give you that number of points. Ex. Positio
 Inspired by "Space Jam" (1996).
 Characters owned by Warner Bros. under the Looney Tunes franchise: Bugs Bunny and Lola Bunny.
 Developed through IntelliJ (Java & RegEx).
+
+This is a solo project created by Hannah Pham.
